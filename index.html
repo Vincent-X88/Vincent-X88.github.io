@@ -2,789 +2,1058 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Fikronix</title>
-    <link rel="icon" href="/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-
-    <meta name="description"
-        content="Fikronix is a software development agency building modern web and mobile products, backend systems, APIs, and cloud solutions for growing businesses." />
-    <meta name="theme-color" content="#0b1220" />
-    <style>
-        :root {
-            --bg: #ffffff;
-            --panel: #ffffff;
-            --text: #0b1220;
-            --muted: #5b657a;
-            --line: rgba(11, 18, 32, .10);
-            --brand: #0b5cff;
-            /* professional blue */
-            --brand2: #0b5cff;
-            /* keep single brand color */
-            --ok: #16a34a;
-            --shadow: 0 10px 30px rgba(11, 18, 32, .08);
-            --radius: 16px;
-            --max: 1120px;
-            --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-        }
-
-
-        * {
-            box-sizing: border-box
-        }
-
-        html,
-        body {
-            height: 100%
-        }
-
-        body {
-            margin: 0;
-            font-family: var(--font);
-            color: var(--text);
-            background: var(--bg);
-            line-height: 1.55;
-        }
-
-
-        a {
-            color: inherit
-        }
-
-        .wrap {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 0 20px
-        }
-
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, .85);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(10px);
-        }
-
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 0;
-            gap: 14px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            min-width: 180px;
-        }
-
-
-        .logo-mark {
-            width: 36px;
-            height: 36px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            color: var(--text);
-        }
-
-        .brand-name {
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: .2px;
-            color: var(--text);
-        }
-
-
-        .brand img {
-            height: 34px;
-            width: auto;
-            display: block
-        }
-
-        .brand strong {
-            font-size: 15px;
-            letter-spacing: .2px
-        }
-
-        .links {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: flex-end
-        }
-
-        .links a {
-            text-decoration: none;
-            color: var(--muted);
-            font-size: 14px;
-            padding: 8px 10px;
-            border-radius: 10px;
-            transition: .2s ease;
-        }
-
-        .links a:hover {
-            color: var(--text);
-            background: rgba(255, 255, 255, .06)
-        }
-
-        .cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 14px;
-            border-radius: 12px;
-            background: var(--brand);
-            color: white;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 14px;
-            border: 1px solid rgba(11, 92, 255, .15);
-            box-shadow: 0 8px 20px rgba(11, 92, 255, .18);
-        }
-
-
-
-
-        .cta:active {
-            transform: translateY(1px)
-        }
-
-        .hero {
-            padding: 54px 0 26px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 28px;
-            align-items: stretch;
-        }
-
-        .kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .04);
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: var(--ok);
-            box-shadow: 0 0 0 4px rgba(47, 230, 166, .16)
-        }
-
-        h1 {
-            margin: 14px 0 10px;
-            font-size: 44px;
-            line-height: 1.08;
-            letter-spacing: -.6px;
-        }
-
-        .sub {
-            margin: 0 0 18px;
-            color: var(--muted);
-            font-size: 16px;
-            max-width: 62ch;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 18px 0 10px
-        }
-
-        .ghost {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 14px;
-            border-radius: 12px;
-            background: transparent;
-            border: 1px solid var(--line);
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 14px;
-        }
-
-
-        .ghost:hover {
-            background: rgba(255, 255, 255, .08)
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .stat {
-            padding: 14px;
-            border-radius: var(--radius);
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-        }
-
-        .stat b {
-            display: block;
-            font-size: 18px
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 13px
-        }
-
-        .card {
-            border-radius: 22px;
-            border: 1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .teamimg {
-            width: 100%;
-            height: 100%;
-            min-height: 360px;
-            object-fit: cover;
-            display: block;
-            filter: saturate(1.02) contrast(1.02);
-        }
-
-        .cardcap {
-            padding: 14px 16px 16px;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        section {
-            padding: 44px 0
-        }
-
-        .section-title {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 18px;
-        }
-
-        h2 {
-            margin: 0;
-            font-size: 28px;
-            letter-spacing: -.3px
-        }
-
-        .lead {
-            margin: 0;
-            color: var(--muted);
-            max-width: 70ch
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px
-        }
-
-        .panel {
-            border-radius: var(--radius);
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, .04);
-            padding: 16px;
-        }
-
-        .panel h3 {
-            margin: 0 0 8px;
-            font-size: 16px
-        }
-
-        .panel p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        .pill {
-            display: inline-flex;
-            padding: 6px 10px;
-            border-radius: 10px;
-            border: 1px solid var(--line);
-            background: rgba(11, 18, 32, .03);
-            color: var(--muted);
-            font-size: 12px;
-            margin: 6px 6px 0 0;
-        }
-
-
-        .process {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-        }
-
-        .step b {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 10px;
-            background: rgba(79, 140, 255, .15);
-            border: 1px solid rgba(79, 140, 255, .35);
-            color: var(--text);
-            margin-bottom: 10px;
-        }
-
-        .cta-band {
-            border-radius: 26px;
-            border: 1px solid var(--line);
-            background:
-                radial-gradient(900px 380px at 20% 30%, rgba(79, 140, 255, .22), transparent 60%),
-                radial-gradient(900px 380px at 80% 10%, rgba(124, 92, 255, .20), transparent 60%),
-                rgba(255, 255, 255, .04);
-            padding: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .cta-band h3 {
-            margin: 0;
-            font-size: 18px
-        }
-
-        .cta-band p {
-            margin: 6px 0 0;
-            color: var(--muted);
-            font-size: 14px;
-            max-width: 70ch
-        }
-
-        .contact {
-            display: grid;
-            grid-template-columns: 1.2fr .8fr;
-            gap: 14px;
-        }
-
-        .contact a {
-            color: var(--text);
-            text-decoration: none
-        }
-
-        .contact a:hover {
-            text-decoration: underline
-        }
-
-        .list {
-            margin: 12px 0 0;
-            padding: 0;
-            list-style: none
-        }
-
-        .list li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        .list li:last-child {
-            border-bottom: 0
-        }
-
-        footer {
-            padding: 26px 0 40px;
-            border-top: 1px solid var(--line);
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        @media (max-width: 980px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .teamimg {
-                min-height: 320px
-            }
-
-            .stats {
-                grid-template-columns: 1fr
-            }
-
-            .grid-3 {
-                grid-template-columns: 1fr
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr
-            }
-
-            .process {
-                grid-template-columns: 1fr
-            }
-
-            .contact {
-                grid-template-columns: 1fr
-            }
-
-            h1 {
-                font-size: 36px
-            }
-
-            .links {
-                display: none
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fikronix</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+  <link rel="alternate icon" href="/favicon.png">
+
+  <meta name="description"
+    content="Fikronix is a software development agency building modern web and mobile products, backend systems, APIs, and cloud solutions for growing businesses." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --text: #0b1220;
+      --muted: #5b657a;
+      --line: rgba(11, 18, 32, .10);
+      --brand: #0b5cff;
+      --brand2: #7c5cff;
+      --ok: #16a34a;
+      --warn: #dc2626;
+      --shadow: 0 10px 30px rgba(11, 18, 32, .08);
+      --radius: 16px;
+      --max: 1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+      --tint: rgba(11, 92, 255, .06);
+      --tint2: rgba(124, 92, 255, .06);
+      --soft: rgba(11, 18, 32, .03);
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 15% -10%, var(--tint), transparent 60%),
+        radial-gradient(900px 600px at 85% 0%, var(--tint2), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: inherit }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px }
+    .muted { color: var(--muted); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .85);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 180px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(11, 92, 255, .12), rgba(124, 92, 255, .06));
+      border: 1px solid rgba(11, 18, 32, .10);
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: var(--text);
+    }
+
+    .links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s ease;
+    }
+
+    .links a:hover {
+      color: var(--text);
+      background: rgba(11, 18, 32, .04)
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid rgba(11, 92, 255, .15);
+      box-shadow: 0 8px 20px rgba(11, 92, 255, .18);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
+
+    .cta:hover { filter: brightness(1.02); box-shadow: 0 10px 24px rgba(11, 92, 255, .22); }
+    .cta:active { transform: translateY(1px) }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+    .ghost:hover { background: rgba(11, 18, 32, .04) }
+    .ghost:active { transform: translateY(1px) }
+
+    /* Hero */
+    .hero { padding: 64px 0 30px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .75);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, .12)
+    }
+
+    h1 {
+      margin: 14px 0 10px;
+      font-size: 46px;
+      line-height: 1.06;
+      letter-spacing: -.8px;
+    }
+
+    .sub {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 18px 0 10px
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .70);
+      transition: transform .15s ease;
+    }
+
+    .stat:hover { transform: translateY(-2px); }
+
+    .stat b { display: block; font-size: 18px }
+    .stat span { color: var(--muted); font-size: 13px }
+
+    /* Cards & Panels */
+    .card {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .92), rgba(255, 255, 255, .70));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .teamimg {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .cardcap {
+      padding: 14px 16px 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section { padding: 52px 0 }
+
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    h2 { margin: 0; font-size: 30px; letter-spacing: -.35px }
+
+    .lead { margin: 0; color: var(--muted); max-width: 70ch }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px }
+
+    .panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .90), rgba(255, 255, 255, .68));
+      padding: 16px;
+      box-shadow: 0 10px 25px rgba(11, 18, 32, .06);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .panel:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(11, 18, 32, .08); }
+
+    .panel h3 { margin: 0 0 8px; font-size: 16px }
+    .panel p { margin: 0; color: var(--muted); font-size: 14px }
+
+    .pill {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(11, 18, 32, .03);
+      color: var(--muted);
+      font-size: 12px;
+      margin: 6px 6px 0 0;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(11, 18, 32, .10), transparent);
+      margin: 24px 0;
+    }
+
+    /* Process */
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+    .step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: rgba(11, 92, 255, .12);
+      border: 1px solid rgba(11, 92, 255, .25);
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    /* CTA band */
+    .cta-band {
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(900px 380px at 20% 30%, rgba(11, 92, 255, .18), transparent 60%),
+        radial-gradient(900px 380px at 80% 10%, rgba(124, 92, 255, .16), transparent 60%),
+        rgba(255, 255, 255, .70);
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 14px 30px rgba(11, 18, 32, .06);
+    }
+
+    .cta-band h3 { margin: 0; font-size: 18px }
+    .cta-band p { margin: 6px 0 0; color: var(--muted); font-size: 14px; max-width: 70ch }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1.2fr .8fr; gap: 14px; }
+    .contact a { color: var(--text); text-decoration: none }
+    .contact a:hover { text-decoration: underline }
+
+    .list { margin: 12px 0 0; padding: 0; list-style: none }
+    .list li { padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 14px }
+    .list li:last-child { border-bottom: 0 }
+
+    footer {
+      padding: 26px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* -----------------------
+       Professional form styles
+    ------------------------ */
+    .form { display: grid; gap: 12px; margin-top: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field label { display: block; font-size: 13px; color: var(--muted); margin: 0 0 6px; }
+
+    .input, .textarea, .select {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+      font-size: 14px;
+    }
+
+    .textarea { min-height: 120px; resize: vertical; }
+
+    .input:focus, .textarea:focus, .select:focus {
+      border-color: rgba(11, 92, 255, .45);
+      box-shadow: 0 0 0 4px rgba(11, 92, 255, .12);
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      border: 1px solid rgba(11, 92, 255, .15);
+      box-shadow: 0 8px 20px rgba(11, 92, 255, .18);
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
+
+    .btn:hover { filter: brightness(1.02); box-shadow: 0 10px 24px rgba(11, 92, 255, .22); }
+    .btn:active { transform: translateY(1px); }
+
+    .btn[disabled] { opacity: .65; cursor: not-allowed; box-shadow: none; }
+
+    .form-note { color: var(--muted); font-size: 13px; margin: 0; }
+
+    .status {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-size: 14px;
+      display: none;
+    }
+
+    .status.ok {
+      display: block;
+      border-color: rgba(22, 163, 74, .25);
+      background: rgba(22, 163, 74, .06);
+      color: var(--text);
+    }
+
+    .status.err {
+      display: block;
+      border-color: rgba(220, 38, 38, .25);
+      background: rgba(220, 38, 38, .06);
+      color: var(--text);
+    }
+
+    /* Honeypot */
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    /* Tiny badges row */
+    .badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .70);
+      font-size: 13px;
+      color: var(--muted);
+      box-shadow: 0 10px 22px rgba(11, 18, 32, .05);
+    }
+
+    .badge svg { opacity: .9; }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .teamimg { min-height: 320px }
+      .stats { grid-template-columns: 1fr }
+      .grid-3 { grid-template-columns: 1fr }
+      .grid-2 { grid-template-columns: 1fr }
+      .process { grid-template-columns: 1fr }
+      .contact { grid-template-columns: 1fr }
+      .form-row { grid-template-columns: 1fr; }
+      h1 { font-size: 36px }
+      .links { display: none }
+      .badges { justify-content: flex-start; }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Top Bar -->
-    <div class="topbar">
-        <div class="wrap">
-            <div class="nav">
-                <a class="brand" href="#top" aria-label="Fikronix Home">
-                    <span class="logo-mark" aria-hidden="true">
-                        <svg viewBox="0 0 64 64" width="34" height="34" role="img" aria-label="Fikronix mark">
-                            <rect x="6" y="6" width="52" height="52" rx="10" fill="none" stroke="currentColor"
-                                stroke-width="4" />
-                            <!-- Stylized "F" -->
-                            <path d="M24 46V18h22v6H31v6h12v6H31v10h-7z" fill="currentColor" />
-                        </svg>
-                    </span>
-                    <span class="brand-name">Fikronix</span>
-                </a>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Fikronix Home">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="26" height="26" role="img" aria-label="Fikronix mark">
+              <rect x="6" y="6" width="52" height="52" rx="10" fill="none" stroke="currentColor" stroke-width="4" />
+              <path d="M24 46V18h22v6H31v6h12v6H31v10h-7z" fill="currentColor" />
+            </svg>
+          </span>
+          <span class="brand-name">Fikronix</span>
+        </a>
 
-
-                <div class="links" aria-label="Primary navigation">
-                    <a href="#services">Services</a>
-                    <a href="#process">Process</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-
-                <a class="cta" href="mailto:info@fikronix.co.za?subject=Project%20enquiry%20-%20Fikronix">Start a
-                    Project</a>
-            </div>
+        <div class="links" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </div>
+
+        <a class="cta" href="#contact">Start a Project</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Hero -->
-    <main id="top" class="hero">
-        <div class="wrap">
-            <div class="hero-grid">
-                <div>
-                    <div class="kicker"><span class="dot"></span> Software Development Agency • Web • Mobile • Cloud
-                    </div>
-                    <h1>Build reliable software that ships fast and scales with your business.</h1>
-                    <p class="sub">
-                        Fikronix designs and develops modern digital products—web apps, mobile apps, APIs and cloud
-                        systems—
-                        with clean engineering, clear communication, and production-ready delivery.
-                    </p>
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot"></span> Software Development Agency • Web • Mobile • Cloud</div>
+          <h1>Build reliable software that ships fast and scales with your business.</h1>
+          <p class="sub">
+            Fikronix designs and develops modern digital products—web apps, mobile apps, APIs and cloud systems—
+            with clean engineering, clear communication, and production-ready delivery.
+          </p>
 
-                    <div class="hero-actions">
-                        <a class="cta" href="mailto:info@fikronix.co.za?subject=Project%20enquiry%20-%20Fikronix">Get a
-                            Free Consultation</a>
-                        <a class="ghost" href="#services">View Services</a>
-                    </div>
+          <div class="hero-actions">
+            <a class="cta" href="#contact">Get a Free Consultation</a>
+            <a class="ghost" href="#services">View Services</a>
+          </div>
 
-                    <div class="stats" aria-label="Key highlights">
-                        <div class="stat">
-                            <b>Product-focused</b>
-                            <span>We build what matters—performance, security, maintainability.</span>
-                        </div>
-                        <div class="stat">
-                            <b>Engineering quality</b>
-                            <span>Best practices, testing, clean architecture, and documentation.</span>
-                        </div>
-                        <div class="stat">
-                            <b>Transparent delivery</b>
-                            <span>Clear scope, milestones, and frequent progress updates.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" aria-label="Team photo">
-                    <img class="teamimg" src="/Team discussion in modern boardroom.png"
-                        alt="Fikronix team discussing in a modern boardroom" />
-                    <div class="cardcap">
-                        A hands-on team focused on shipping production-ready software.
-                    </div>
-                </div>
+          <div class="stats" aria-label="Key highlights">
+            <div class="stat">
+              <b>Product-focused</b>
+              <span>We build what matters—performance, security, maintainability.</span>
             </div>
+            <div class="stat">
+              <b>Engineering quality</b>
+              <span>Best practices, testing, clean architecture, and documentation.</span>
+            </div>
+            <div class="stat">
+              <b>Transparent delivery</b>
+              <span>Clear scope, milestones, and frequent progress updates.</span>
+            </div>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <div class="badges" aria-label="Quality badges">
+            <div class="badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" />
+              </svg>
+              Secure-by-default
+            </div>
+            <div class="badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12h7l2-9 4 18 2-9h3" />
+              </svg>
+              Performance-minded
+            </div>
+            <div class="badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 8v13H3V8" /><path d="M1 3h22v5H1z" />
+              </svg>
+              Production-ready delivery
+            </div>
+          </div>
         </div>
-    </main>
 
-    <!-- Services -->
-    <section id="services">
-        <div class="wrap">
-            <div class="section-title">
-                <div>
-                    <h2>Services</h2>
-                    <p class="lead">End-to-end delivery—from idea to launch and ongoing improvements.</p>
-                </div>
-            </div>
-
-            <div class="grid-3">
-                <div class="panel">
-                    <h3>Web Applications</h3>
-                    <p>High-performance web platforms, dashboards, portals, and internal tools built for real users and
-                        real scale.</p>
-                    <div>
-                        <span class="pill">React / Next.js</span>
-                        <span class="pill">Node.js</span>
-                        <span class="pill">ASP.NET</span>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>Mobile Development</h3>
-                    <p>Modern mobile apps with smooth UX, secure authentication, and reliable backend integration.</p>
-                    <div>
-                        <span class="pill">Cross-platform</span>
-                        <span class="pill">API Integration</span>
-                        <span class="pill">App Store Ready</span>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>Backend, APIs & Integrations</h3>
-                    <p>Robust APIs, microservices, integrations, and automation that connect systems and streamline
-                        operations.</p>
-                    <div>
-                        <span class="pill">REST APIs</span>
-                        <span class="pill">Auth & Security</span>
-                        <span class="pill">3rd-Party Integrations</span>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>Cloud & DevOps</h3>
-                    <p>Deployment pipelines, hosting, monitoring, and scalability improvements so your system stays
-                        stable.</p>
-                    <div>
-                        <span class="pill">CI/CD</span>
-                        <span class="pill">Monitoring</span>
-                        <span class="pill">Performance</span>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>UI/UX & Product Design</h3>
-                    <p>Clean, professional interfaces with thoughtful user journeys—designed for clarity and conversion.
-                    </p>
-                    <div>
-                        <span class="pill">Design Systems</span>
-                        <span class="pill">Prototypes</span>
-                        <span class="pill">Responsive UI</span>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>Maintenance & Support</h3>
-                    <p>Ongoing enhancements, bug fixes, and improvements to keep your product modern and competitive.
-                    </p>
-                    <div>
-                        <span class="pill">SLA Options</span>
-                        <span class="pill">Enhancements</span>
-                        <span class="pill">Security Updates</span>
-                    </div>
-                </div>
-            </div>
+        <div class="card" aria-label="Team photo">
+          <img class="teamimg" src="/Team discussion in modern boardroom.png"
+            alt="Fikronix team discussing in a modern boardroom" />
+          <div class="cardcap">
+            A hands-on team focused on shipping maintainable, scalable software.
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </main>
 
-    <!-- Process -->
-    <section id="process">
-        <div class="wrap">
-            <div class="section-title">
-                <div>
-                    <h2>How we work</h2>
-                    <p class="lead">A simple, proven process that keeps delivery predictable and quality high.</p>
-                </div>
-            </div>
-
-            <div class="process">
-                <div class="panel step">
-                    <b>1</b>
-                    <h3>Discovery & Scope</h3>
-                    <p>We clarify goals, users, requirements, and success metrics—then define a practical delivery plan.
-                    </p>
-                </div>
-                <div class="panel step">
-                    <b>2</b>
-                    <h3>Design & Architecture</h3>
-                    <p>We create UX flows and technical architecture that supports performance, security, and growth.
-                    </p>
-                </div>
-                <div class="panel step">
-                    <b>3</b>
-                    <h3>Build & Iterate</h3>
-                    <p>Agile development with frequent demos, clear milestones, and continuous feedback.</p>
-                </div>
-                <div class="panel step">
-                    <b>4</b>
-                    <h3>Launch & Support</h3>
-                    <p>We deploy, monitor, and improve—ensuring stability and ongoing enhancements.</p>
-                </div>
-            </div>
+  <!-- Capability strip -->
+  <section aria-label="Capabilities strip" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h3>Built with modern engineering standards</h3>
+          <p>
+            Clean architecture, secure authentication, testing, CI/CD, and cloud-ready scalability—without overcomplicating delivery.
+          </p>
         </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-        <div class="wrap">
-            <div class="section-title">
-                <div>
-                    <h2>About Fikronix</h2>
-                    <p class="lead">
-                        We’re a software development agency committed to building clean, maintainable systems that
-                        deliver real business value.
-                        Our focus is quality engineering, professional communication, and dependable execution.
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="panel">
-                    <h3>What you can expect</h3>
-                    <p>
-                        A partner that treats your product like an investment: strong foundations, secure
-                        implementation, and a roadmap-driven approach.
-                        We prioritize clarity in scope, realistic timelines, and consistent progress updates.
-                    </p>
-                    <ul class="list">
-                        <li>Clear deliverables & milestones</li>
-                        <li>Production-ready code & documentation</li>
-                        <li>Security-first mindset</li>
-                        <li>Performance & scalability planning</li>
-                    </ul>
-                </div>
-
-                <div class="panel">
-                    <h3>Ideal for</h3>
-                    <p>
-                        Businesses that need a reliable team to build or improve software products—whether it’s a new
-                        platform,
-                        an internal system, or modernizing an existing solution.
-                    </p>
-                    <div>
-                        <span class="pill">Startups</span>
-                        <span class="pill">SMEs</span>
-                        <span class="pill">Enterprises</span>
-                        <span class="pill">Internal Tools</span>
-                        <span class="pill">Customer Portals</span>
-                        <span class="pill">Automation</span>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top:14px" class="cta-band">
-                <div>
-                    <h3>Ready to build with Fikronix?</h3>
-                    <p>Tell us what you’re working on. We’ll respond with next steps and a clear plan.</p>
-                </div>
-                <a class="cta" href="mailto:info@fikronix.co.za?subject=Project%20enquiry%20-%20Fikronix">Contact Us</a>
-            </div>
+        <div>
+          <span class="pill">APIs & Integrations</span>
+          <span class="pill">Cloud Deployments</span>
+          <span class="pill">CI/CD</span>
+          <span class="pill">Testing</span>
+          <span class="pill">Security</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="wrap">
-            <div class="section-title">
-                <div>
-                    <h2>Contact</h2>
-                    <p class="lead">Let’s discuss your project and how we can help you ship faster with confidence.</p>
-                </div>
-            </div>
-
-            <div class="contact">
-                <div class="panel">
-                    <h3>Get in touch</h3>
-                    <p>We usually respond within 1 business day.</p>
-                    <ul class="list">
-                        <li><strong>Email:</strong> <a href="mailto:info@fikronix.co.za">info@fikronix.co.za</a></li>
-                        <li><strong>Business:</strong> Fikronix (Software Development Agency)</li>
-                        <li><strong>Website:</strong> fikronix.co.za</li>
-                    </ul>
-
-                    <div class="hero-actions" style="margin-top:14px">
-                        <a class="cta"
-                            href="mailto:info@fikronix.co.za?subject=Free%20consultation%20request%20-%20Fikronix">Request
-                            a Free Consultation</a>
-                        <a class="ghost" href="#top">Back to top</a>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <h3>What to include in your message</h3>
-                    <p>To help us estimate faster, share:</p>
-                    <ul class="list">
-                        <li>What you want to build (web/mobile/backend)</li>
-                        <li>Your timeline and target launch date</li>
-                        <li>Must-have features (top 3–5)</li>
-                        <li>Any existing system or tech stack</li>
-                        <li>Budget range (optional)</li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Services</h2>
+          <p class="lead">End-to-end delivery—from idea to launch and ongoing improvements.</p>
         </div>
-    </section>
+      </div>
 
-    <footer>
-        <div class="wrap">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-                <div>© <span id="y"></span> Fikronix. All rights reserved.</div>
-                <div style="display:flex; gap:14px; flex-wrap:wrap;">
-                    <a href="mailto:info@fikronix.co.za"
-                        style="color:var(--muted); text-decoration:none;">info@fikronix.co.za</a>
-                    <span style="color:rgba(255,255,255,.20)">•</span>
-                    <span style="color:var(--muted)">Professional software delivery</span>
-                </div>
-            </div>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>Web Applications</h3>
+          <p>Dashboards, portals, internal tools and customer platforms built for real users and real scale.</p>
+          <div>
+            <span class="pill">React / Next.js</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">ASP.NET</span>
+          </div>
         </div>
-    </footer>
 
-    <script>
-        document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
+        <div class="panel">
+          <h3>Mobile Development</h3>
+          <p>Modern apps with secure auth, smooth UX, and reliable backend integration.</p>
+          <div>
+            <span class="pill">Cross-platform</span>
+            <span class="pill">API Integration</span>
+            <span class="pill">App Store Ready</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Backend, APIs & Integrations</h3>
+          <p>Robust APIs, integrations, and automation that connect systems and streamline operations.</p>
+          <div>
+            <span class="pill">REST APIs</span>
+            <span class="pill">Auth & Security</span>
+            <span class="pill">3rd-Party Integrations</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Cloud & DevOps</h3>
+          <p>Deployment pipelines, hosting, monitoring and performance improvements so systems stay stable.</p>
+          <div>
+            <span class="pill">CI/CD</span>
+            <span class="pill">Monitoring</span>
+            <span class="pill">Performance</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>UI/UX & Product Design</h3>
+          <p>Clean, professional interfaces with thoughtful user journeys—designed for clarity and conversion.</p>
+          <div>
+            <span class="pill">Design Systems</span>
+            <span class="pill">Prototypes</span>
+            <span class="pill">Responsive UI</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Maintenance & Support</h3>
+          <p>Ongoing enhancements, bug fixes, monitoring, and improvements to keep products modern and competitive.</p>
+          <div>
+            <span class="pill">SLA Options</span>
+            <span class="pill">Enhancements</span>
+            <span class="pill">Security Updates</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Recent work</h2>
+          <p class="lead">Examples of the kind of systems we build for teams that need reliable delivery.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="panel">
+          <h3>Operations Dashboard</h3>
+          <p>Role-based portal for workflows, approvals, reporting, and audit trails.</p>
+          <div>
+            <span class="pill">Web App</span>
+            <span class="pill">RBAC</span>
+            <span class="pill">Reporting</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Mobile Client App</h3>
+          <p>Secure login, push notifications, offline-friendly sync, and API-driven data.</p>
+          <div>
+            <span class="pill">Mobile</span>
+            <span class="pill">Auth</span>
+            <span class="pill">API Integration</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Backend & Integrations</h3>
+          <p>API layer connecting third-party services, payments, and automation pipelines.</p>
+          <div>
+            <span class="pill">REST</span>
+            <span class="pill">Integrations</span>
+            <span class="pill">Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="cta-band">
+        <div>
+          <h3>Need something similar?</h3>
+          <p>Tell us what you’re building and we’ll reply with next steps and a practical plan.</p>
+        </div>
+        <a class="cta" href="#contact">Request a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>How we work</h2>
+          <p class="lead">A simple, proven process that keeps delivery predictable and quality high.</p>
+        </div>
+      </div>
+
+      <div class="process">
+        <div class="panel step">
+          <b>1</b>
+          <h3>Discovery & Scope</h3>
+          <p>We clarify goals, users, requirements, and success metrics—then define a delivery plan.</p>
+        </div>
+        <div class="panel step">
+          <b>2</b>
+          <h3>Design & Architecture</h3>
+          <p>UX flows + technical architecture built for performance, security, and growth.</p>
+        </div>
+        <div class="panel step">
+          <b>3</b>
+          <h3>Build & Iterate</h3>
+          <p>Agile development with frequent demos, clear milestones, and continuous feedback.</p>
+        </div>
+        <div class="panel step">
+          <b>4</b>
+          <h3>Launch & Support</h3>
+          <p>Deploy, monitor, improve—ensuring stability and ongoing enhancements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>About Fikronix</h2>
+          <p class="lead">
+            We’re a software development agency committed to building clean, maintainable systems that deliver real business value.
+            Our focus is quality engineering, professional communication, and dependable execution.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3>What you can expect</h3>
+          <p>
+            A partner that treats your product like an investment: strong foundations, secure implementation, and a roadmap-driven approach.
+            We prioritize clarity in scope, realistic timelines, and consistent progress updates.
+          </p>
+          <ul class="list">
+            <li>Clear deliverables & milestones</li>
+            <li>Production-ready code & documentation</li>
+            <li>Security-first mindset</li>
+            <li>Performance & scalability planning</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Delivery standards</h3>
+          <p>We keep quality high without slowing you down.</p>
+          <ul class="list">
+            <li>Clean architecture & maintainable code</li>
+            <li>Testing where it matters</li>
+            <li>Code reviews & consistent patterns</li>
+            <li>Deployment readiness & monitoring</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:14px" class="grid-3">
+        <div class="panel">
+          <h3>Engagement options</h3>
+          <p>Choose what fits your delivery style.</p>
+          <div>
+            <span class="pill">Fixed Scope</span>
+            <span class="pill">Monthly Retainer</span>
+            <span class="pill">Time & Materials</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Best for</h3>
+          <p>Teams that need reliable engineering capacity.</p>
+          <div>
+            <span class="pill">Startups</span>
+            <span class="pill">SMEs</span>
+            <span class="pill">Internal Tools</span>
+            <span class="pill">Customer Portals</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Typical outcomes</h3>
+          <p>What you should feel after delivery.</p>
+          <div>
+            <span class="pill">Stable releases</span>
+            <span class="pill">Clear roadmap</span>
+            <span class="pill">Easier maintenance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>FAQ</h2>
+          <p class="lead">Quick answers to common questions.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3>How do you price projects?</h3>
+          <p>We offer fixed-scope quotes for clearly defined work, or monthly retainers for ongoing development.</p>
+        </div>
+        <div class="panel">
+          <h3>How fast can we start?</h3>
+          <p>After a short discovery call, we can typically start within a few business days depending on scope.</p>
+        </div>
+        <div class="panel">
+          <h3>Do you provide maintenance?</h3>
+          <p>Yes — ongoing support, improvements, monitoring and security updates are available.</p>
+        </div>
+        <div class="panel">
+          <h3>What tech stack do you use?</h3>
+          <p>React/Next.js, Node.js, ASP.NET, SQL, REST APIs, and cloud deployments depending on requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Contact</h2>
+          <p class="lead">Let’s discuss your project and how we can help you ship faster with confidence.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <!-- LEFT: Form -->
+        <div class="panel">
+          <h3>Send us a message</h3>
+          <p>We usually respond within 1 business day.</p>
+
+          <form id="contactForm" class="form" action="https://formspree.io/f/mbddgkwk" method="POST" novalidate>
+            <div class="hp" aria-hidden="true">
+              <label>Company</label>
+              <input type="text" name="company" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input class="input" id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email address</label>
+                <input class="input" id="email" name="email" type="email" placeholder="you@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="phone">Phone (optional)</label>
+                <input class="input" id="phone" name="phone" type="tel" placeholder="+27..." />
+              </div>
+
+              <div class="field">
+                <label for="service">Service (optional)</label>
+                <select class="select" id="service" name="service">
+                  <option value="">Select a service</option>
+                  <option>Web Application</option>
+                  <option>Mobile App</option>
+                  <option>Backend / API</option>
+                  <option>Cloud / DevOps</option>
+                  <option>UI/UX Design</option>
+                  <option>Maintenance & Support</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Project details</label>
+              <textarea class="textarea" id="message" name="message"
+                placeholder="Tell us what you want to build, your timeline, and any key requirements…" required></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New website enquiry - Fikronix" />
+            <input type="hidden" name="_replyto" id="replytoHidden" />
+
+            <div class="form-actions">
+              <button class="btn" id="sendBtn" type="submit">Send Message</button>
+              <p class="form-note">
+                Or email us directly: <a href="mailto:info@fikronix.co.za">info@fikronix.co.za</a>
+              </p>
+            </div>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <!-- RIGHT: Info -->
+        <div class="panel">
+          <h3>What to include</h3>
+          <p>To help us estimate faster, share:</p>
+          <ul class="list">
+            <li>What you want to build (web/mobile/backend)</li>
+            <li>Your timeline and target launch date</li>
+            <li>Must-have features (top 3–5)</li>
+            <li>Any existing system or tech stack</li>
+            <li>Budget range (optional)</li>
+          </ul>
+
+          <div class="section-divider"></div>
+
+          <ul class="list">
+            <li><strong>Email:</strong> <a href="mailto:info@fikronix.co.za">info@fikronix.co.za</a></li>
+            <li><strong>Business:</strong> Fikronix (Software Development Agency)</li>
+            <li><strong>Website:</strong> fikronix.co.za</li>
+          </ul>
+
+          <div class="hero-actions" style="margin-top:14px">
+            <a class="ghost" href="#top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="y"></span> Fikronix. All rights reserved.</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+          <a href="mailto:info@fikronix.co.za" style="color:var(--muted); text-decoration:none;">info@fikronix.co.za</a>
+          <span style="color:rgba(11,18,32,.25)">•</span>
+          <span style="color:var(--muted)">Professional software delivery</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    const yEl = document.getElementById("y");
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // Formspree AJAX submit
+    const form = document.getElementById("contactForm");
+    const btn = document.getElementById("sendBtn");
+    const statusEl = document.getElementById("formStatus");
+
+    function setStatus(type, msg) {
+      statusEl.className = "status " + type;
+      statusEl.textContent = msg;
+    }
+
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      statusEl.className = "status";
+      statusEl.textContent = "";
+
+      const hp = form.querySelector('input[name="company"]');
+      if (hp && hp.value.trim() !== "") {
+        setStatus("ok", "Thanks! Your message has been sent.");
+        form.reset();
+        return;
+      }
+
+      const name = form.querySelector("#name");
+      const email = form.querySelector("#email");
+      const message = form.querySelector("#message");
+      const replytoHidden = form.querySelector("#replytoHidden");
+
+      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+        setStatus("err", "Please complete your name, email, and project details.");
+        return;
+      }
+
+      if (!isValidEmail(email.value)) {
+        setStatus("err", "Please enter a valid email address.");
+        return;
+      }
+
+      if (replytoHidden) replytoHidden.value = email.value.trim();
+
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" },
+        });
+
+        let data = null;
+        try { data = await res.json(); } catch (_) { }
+
+        if (res.ok) {
+          setStatus("ok", "Thanks! Your message has been sent. We’ll get back to you within 1 business day.");
+          form.reset();
+        } else {
+          console.error("Formspree error:", res.status, data);
+          const msg =
+            data?.errors?.map(e => e.message).join(" | ") ||
+            `Form submission failed (Error ${res.status}). Please email us at info@fikronix.co.za.`;
+          setStatus("err", msg);
+        }
+      } catch (err) {
+        console.error("Network error:", err);
+        setStatus("err", "Network error. Please try again or email us at info@fikronix.co.za.");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Send Message";
+      }
+    });
+  </script>
 </body>
 
-
 </html>
-
-
